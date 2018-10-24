@@ -5270,6 +5270,89 @@ class ValidationRulesFactory {
   $o_1287->code = ValidationErrorCode::CSS_SYNTAX_INVALID_ATTR_SELECTOR;
   $o_1287->format = 'CSS syntax error in tag \'%1\' - invalid attribute selector.';
   $o_0->error_formats[] = $o_1287;
+  $o_1295 = new TagSpec();
+  $o_1295->tag_name = 'script';
+  $o_1295->spec_name = 'amp-selector extension .js script';
+  $o_1295->mandatory_parent = 'head';
+  $o_1296 = new AttrSpec();
+  $o_1296->name = 'async';
+  $o_1296->mandatory = TRUE;
+  $o_1296->value = '';
+  $o_1295->attrs[] = $o_1296;
+  $o_1297 = new AttrSpec();
+  $o_1297->name = 'custom-element';
+  $o_1297->mandatory = TRUE;
+  $o_1297->value = 'amp-selector';
+  $o_1297->dispatch_key = TRUE;
+  $o_1295->attrs[] = $o_1297;
+  $o_1298 = new AttrSpec();
+  $o_1298->name = 'src';
+  $o_1298->mandatory = TRUE;
+  $o_1298->value_regex = 'https://cdn\\.ampproject\\.org/v0/amp-selector-(latest|0\\.1).js';
+  $o_1295->attrs[] = $o_1298;
+  $o_1299 = new AttrSpec();
+  $o_1299->name = 'type';
+  $o_1299->value = 'text/javascript';
+  $o_1295->attrs[] = $o_1299;
+  $o_1295->spec_url = 'https://www.ampproject.org/docs/reference/extended/amp-selector.html';
+  $o_1230 = new CdataSpec();
+  $o_1231 = new BlackListedCDataRegex();
+  $o_1231->regex = '.';
+  $o_1231->error_message = 'contents';
+  $o_1230->blacklisted_cdata_regex[] = $o_1231;
+  $o_1295->cdata = $o_1230;
+  $o_0->tags[] = $o_1295;
+  $o_1231 = new TagSpec();
+  $o_1231->tag_name = 'amp-selector';
+  $o_1231->unique = TRUE;
+  $o_1231->attr_lists = ['extended-amp-global'];
+  $o_1231->spec_url = 'https://github.com/ampproject/amphtml/blob/master/extensions/amp-selector/amp-selector.md';
+  $o_1232 = new AttrSpec();
+  $o_1232->name = 'name';
+  $o_1231->attrs[] = $o_1232;
+  $o_1233 = new AttrSpec();
+  $o_1233->name = 'layout';
+  $o_1231->attrs[] = $o_1233;
+  $o_1234 = new AmpLayout();
+  $o_1234->supported_layouts = [
+    AmpLayoutLayout::FILL,
+    AmpLayoutLayout::FIXED,
+    AmpLayoutLayout::FIXED_HEIGHT,
+    AmpLayoutLayout::FLEX_ITEM,
+    AmpLayoutLayout::NODISPLAY,
+    AmpLayoutLayout::RESPONSIVE,
+    AmpLayoutLayout::CONTAINER,
+  ];
+  $o_1231->amp_layout = $o_1234;
+  $o_1231->disallowed_ancestor = ['head', 'amp-selector'];
+  $o_1231->also_requires_tag = ['amp-selector extension .js script'];
+  $o_0->tags[] = $o_1231;
+  $o_1235 = new TagSpec();
+  $o_1235->tag_name = 'amp-state';
+  $o_1235->attr_lists = ['extended-amp-global'];
+  $o_1235->spec_url = 'https://github.com/ampproject/amphtml/blob/master/extensions/amp-selector/amp-selector.md';
+  $o_1236 = new AttrSpec();
+  $o_1236->name = 'id';
+  $o_1235->attrs[] = $o_1236;
+  $o_1237 = new AttrSpec();
+  $o_1237->name = 'src';
+  $o_1235->attrs[] = $o_1237;
+  $o_0->tags[] = $o_1235;
+  $o_1238 = new TagSpec();
+  $o_1238->tag_name = 'select';
+  $o_1239 = new AttrSpec();
+  $o_1239->name = 'id';
+  $o_1238->attrs[] = $o_1239;
+  $o_1240 = new AttrSpec();
+  $o_1240->name = '0n';
+  $o_1238->attrs[] = $o_1240;
+  $o_0->tags[] = $o_1238;
+  $o_1241 = new TagSpec();
+  $o_1241->tag_name = 'option';
+  $o_1242 = new AttrSpec();
+  $o_1242->name = 'value';
+  $o_1241->attrs[] = $o_1242;
+  $o_0->tags[] = $o_1241;
   return $o_0;
   }
 }
