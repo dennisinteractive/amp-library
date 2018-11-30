@@ -330,9 +330,57 @@ class ValidationRulesFactory {
         'name' => TRUE
       );
     }
-    var_dump($allowed_html);
+    krumo($allowed_html);
 
   $o_0 = new ValidatorRules();
+    $o_146 = new TagSpec();
+    $o_146->tag_name = 'a';
+    $o_147 = new AttrSpec();
+    $o_147->name = 'href';
+    $o_148 = new UrlSpec();
+    $o_148->allowed_protocol = ['ftp', 'http', 'https', 'mailto', 'fb-messenger', 'sms', 'tel', 'viber', 'whatsapp'];
+    $o_148->allow_relative = true;
+    $o_147->value_url = $o_148;
+    $o_146->attrs[] = $o_147;
+    $o_149 = new AttrSpec();
+    $o_149->name = 'hreflang';
+    $o_146->attrs[] = $o_149;
+    $o_150 = new AttrSpec();
+    $o_150->name = 'rel';
+    $o_150->blacklisted_value_regex = '(^|\\s)(canonical|components|dns-prefetch|import|manifest|preconnect|prefetch|preload|prerender|serviceworker|stylesheet|subresource|)(\\s|$)';
+    $o_146->attrs[] = $o_150;
+    $o_151 = new AttrSpec();
+    $o_151->name = 'role';
+    $o_151->implicit = true;
+    $o_146->attrs[] = $o_151;
+    $o_152 = new AttrSpec();
+    $o_152->name = 'tabindex';
+    $o_152->implicit = true;
+    $o_146->attrs[] = $o_152;
+    $o_153 = new AttrSpec();
+    $o_153->name = 'target';
+    $o_153->value_regex = '(_blank|_self)';
+    $o_146->attrs[] = $o_153;
+    $o_154 = new AttrSpec();
+    $o_154->name = 'download';
+    $o_146->attrs[] = $o_154;
+    $o_155 = new AttrSpec();
+    $o_155->name = 'media';
+    $o_146->attrs[] = $o_155;
+    $o_156 = new AttrSpec();
+    $o_156->name = 'type';
+    $o_156->value = 'text/html';
+    $o_146->attrs[] = $o_156;
+    $o_157 = new AttrSpec();
+    $o_157->name = 'border';
+    $o_146->attrs[] = $o_157;
+    $o_158 = new AttrSpec();
+    $o_158->name = 'name';
+    $o_146->attrs[] = $o_158;
+    $o_0->tags[] = $o_146;
+
+krumo($o_0);
+
   $o_1 = new TagSpec();
   $o_1->tag_name = '!doctype';
   $o_1->spec_name = 'html doctype';
@@ -958,51 +1006,10 @@ class ValidationRulesFactory {
   $o_145 = new TagSpec();
   $o_145->tag_name = 'main';
   $o_0->tags[] = $o_145;
-  $o_146 = new TagSpec();
-  $o_146->tag_name = 'a';
-  $o_147 = new AttrSpec();
-  $o_147->name = 'href';
-  $o_148 = new UrlSpec();
-  $o_148->allowed_protocol = ['ftp', 'http', 'https', 'mailto', 'fb-messenger', 'sms', 'tel', 'viber', 'whatsapp'];
-  $o_148->allow_relative = true;
-  $o_147->value_url = $o_148;
-  $o_146->attrs[] = $o_147;
-  $o_149 = new AttrSpec();
-  $o_149->name = 'hreflang';
-  $o_146->attrs[] = $o_149;
-  $o_150 = new AttrSpec();
-  $o_150->name = 'rel';
-  $o_150->blacklisted_value_regex = '(^|\\s)(canonical|components|dns-prefetch|import|manifest|preconnect|prefetch|preload|prerender|serviceworker|stylesheet|subresource|)(\\s|$)';
-  $o_146->attrs[] = $o_150;
-  $o_151 = new AttrSpec();
-  $o_151->name = 'role';
-  $o_151->implicit = true;
-  $o_146->attrs[] = $o_151;
-  $o_152 = new AttrSpec();
-  $o_152->name = 'tabindex';
-  $o_152->implicit = true;
-  $o_146->attrs[] = $o_152;
-  $o_153 = new AttrSpec();
-  $o_153->name = 'target';
-  $o_153->value_regex = '(_blank|_self)';
-  $o_146->attrs[] = $o_153;
-  $o_154 = new AttrSpec();
-  $o_154->name = 'download';
-  $o_146->attrs[] = $o_154;
-  $o_155 = new AttrSpec();
-  $o_155->name = 'media';
-  $o_146->attrs[] = $o_155;
-  $o_156 = new AttrSpec();
-  $o_156->name = 'type';
-  $o_156->value = 'text/html';
-  $o_146->attrs[] = $o_156;
-  $o_157 = new AttrSpec();
-  $o_157->name = 'border';
-  $o_146->attrs[] = $o_157;
-  $o_158 = new AttrSpec();
-  $o_158->name = 'name';
-  $o_146->attrs[] = $o_158;
-  $o_0->tags[] = $o_146;
+
+
+
+
   $o_159 = new TagSpec();
   $o_159->tag_name = 'em';
   $o_0->tags[] = $o_159;
@@ -5318,6 +5325,8 @@ class ValidationRulesFactory {
   $o_1287->code = ValidationErrorCode::CSS_SYNTAX_INVALID_ATTR_SELECTOR;
   $o_1287->format = 'CSS syntax error in tag \'%1\' - invalid attribute selector.';
   $o_0->error_formats[] = $o_1287;
+
+  //var_dump($o_0);
   return $o_0;
   }
 }
