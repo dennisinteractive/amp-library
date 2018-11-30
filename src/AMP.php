@@ -130,7 +130,6 @@ class AMP
     /**
      * AMP constructor.
      *
-     * @see src/Spec/validator-generated.php
      */
     public function __construct()
     {
