@@ -284,6 +284,54 @@ class ValidatorRules {
 
 class ValidationRulesFactory {
   public static function createValidationRules() {
+
+    $allowed_html = array();
+    if (class_exists('AMP_Allowed_Tags_Generated')) {
+
+      $allowed_html = \AMP_Allowed_Tags_Generated::get_allowed_tags();
+      $allowed_atts = \AMP_Allowed_Tags_Generated::get_allowed_attributes();
+      foreach ($allowed_atts as $att => $value) {
+        $allowed_atts[$att] = TRUE;
+      }
+      foreach ($allowed_html as $amp_tag => $values) {
+        $allowed_html[$amp_tag] = $allowed_atts;
+      }
+    }
+    if ($allowed_html) {
+      foreach ($allowed_html as $tag => $atts) {
+        if (is_array($atts)) {
+          unset($allowed_html[$tag]['style']);
+        }
+        if ('a' == $tag) {
+          $allowed_html[$tag]['data-toggle'] = TRUE;
+        }
+        if ('label' == $tag) {
+          $allowed_html[$tag]['aria-label'] = TRUE;
+        }
+        if ('amp-img' == $tag) {
+          $allowed_html[$tag] = array(
+            'width' => TRUE,
+            'height' => TRUE,
+            'src' => TRUE,
+            'layout' => TRUE,
+            'alt' => TRUE,
+            'on' => TRUE,
+            'role' => TRUE,
+            'tabindex' => TRUE
+          );
+        }
+      }
+      $allowed_html['input'] = array(
+        'class' => TRUE,
+        'type' => TRUE,
+        'id' => TRUE,
+        'placeholder' => TRUE,
+        'value' => TRUE,
+        'name' => TRUE
+      );
+    }
+    var_dump($allowed_html);
+
   $o_0 = new ValidatorRules();
   $o_1 = new TagSpec();
   $o_1->tag_name = '!doctype';
