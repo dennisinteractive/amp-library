@@ -61,6 +61,26 @@ class ParsedTagSpec
     /** @var string[] */
     protected static $all_layouts = [];
 
+  public function short_backtrace($limit = 0) {
+    $r = [];
+    $t = debug_backtrace();
+    $t = array_slice($t, 1, $limit);
+    for ($i = 0; $i <= $limit; $i++) {
+      if (isset($t[$i]['file'])) {
+        $f = '';
+        if (isset($t[$i]['function'])) {
+          $f = ' called ' . $t[$i]['function'] . '()';
+        }
+        $r[] = [
+          'Line' => $t[$i]['file'] . ':' . $t[$i]['line'] . $f,
+          'With args' => $t[$i]['args'],
+        ];
+      }
+    }
+
+    return $r;
+
+  }
     /**
      * ParsedTagSpec constructor.
      * @param string $template_spec_url
@@ -72,6 +92,8 @@ class ParsedTagSpec
     public function __construct($template_spec_url, array $attr_lists_by_name, array $tagspec_by_detail_or_name,
                                 $should_record_tagspec_validated, TagSpec $tag_spec)
     {
+//      var_dump($this->short_backtrace(3));
+//      exit;
         $this->spec = $tag_spec;
         $this->template_spec_url = $template_spec_url;
         $this->should_record_tagspec_validated = $should_record_tagspec_validated;
