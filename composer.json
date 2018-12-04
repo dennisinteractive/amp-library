@@ -23,8 +23,7 @@
     "autoload": {
         "psr-4": {"Lullabot\\AMP\\": "src"},
         "classmap": [
-            "includes/class-amp-content.php",
-            "includes/class-amp-content-sanitizer.php",
+            "includes",
             "src/Spec/class-amp-allowed-tags-generated.php"
         ]
     },
