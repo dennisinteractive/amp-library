@@ -21,7 +21,12 @@
         "marcelovani/amp-sanitizer": "dev-master"
     },
     "autoload": {
-        "psr-4": {"Lullabot\\AMP\\": "src"}
+        "psr-4": {"Lullabot\\AMP\\": "src"},
+        "classmap": [
+            "includes/class-amp-content.php",
+            "includes/class-amp-content-sanitizer.php",
+            "src/Spec/class-amp-allowed-tags-generated.php"
+        ]
     },
     "require-dev": {
         "php" : ">=5.5.0",
