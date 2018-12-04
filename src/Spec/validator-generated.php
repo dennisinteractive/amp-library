@@ -330,7 +330,7 @@ class ValidationRulesFactory {
         'name' => TRUE
       );
     }
-    krumo($allowed_html);
+//    krumo($allowed_html);
 
   $o_0 = new ValidatorRules();
     $o_146 = new TagSpec();
@@ -379,7 +379,7 @@ class ValidationRulesFactory {
     $o_146->attrs[] = $o_158;
     $o_0->tags[] = $o_146;
 
-krumo($o_0);
+//krumo($o_0);
 
   $o_1 = new TagSpec();
   $o_1->tag_name = '!doctype';
