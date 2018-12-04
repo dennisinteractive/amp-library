@@ -20,7 +20,10 @@
 error_reporting(E_ALL ^ E_NOTICE);
 
 if (file_exists(getcwd() . '/vendor/autoload.php')) {
-  require_once getcwd() . '/vendor/autoload.php';
+  require __DIR__.'/vendor/autoload.php';
+}
+if (file_exists(getcwd() . '/vendor/autoload.php')) {
+  require_once __DIR__.'/vendor/autoload.php';
 }
 
 use Lullabot\AMP\AmpCommand;
