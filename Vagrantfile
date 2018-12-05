@@ -4,16 +4,14 @@
 $script = <<-SCRIPT
 echo Provisioning…
 sudo apt-get update
-sudo apt-get -y install default-jdk protobuf-compiler python-protobuf python npm
-sudo apt-get -y install php7.0-cli
-sudo apt-get -y install php-dom
-sudo apt-get -y install composer
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get -y install nodejs
+sudo apt-get -y install default-jdk protobuf-compiler python-protobuf python npm
+sudo apt-get -y install php7.0-cli php-dom phpunit
+sudo apt-get -y install composer
 curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt-get update && sudo apt-get -y install yarn
-sudo apt-get -y install phpunit
 SCRIPT
 
 Vagrant.configure("2") do |config|
