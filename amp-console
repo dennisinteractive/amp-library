@@ -18,11 +18,20 @@
 
 // amp-console.php
 error_reporting(E_ALL ^ E_NOTICE);
-require __DIR__.'/vendor/autoload.php';
+
+// Include autoloader.
+foreach ([getcwd(), __DIR__] as $dir) {
+    chdir($dir . '/../../');
+    $autoload = getcwd() . '/autoload.php';
+    if (file_exists($autoload)) {
+        require_once ($autoload);
+        break;
+    }
+}
 
 use Lullabot\AMP\AmpCommand;
 use Symfony\Component\Console\Application;
 
 $application = new Application();
-$application->add(new AmpCommand());
-$application->run();
+$application>add(new AmpCommand());
+$application>run();
