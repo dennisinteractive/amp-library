@@ -352,7 +352,7 @@ def ParseRules(out_dir):
 
 
 def GetTagSpec(tag_spec, attr_lists):
-	logging.info('entering ...')
+	#logging.info('entering ...')
 
 	tag_dict = GetTagRules(tag_spec)
 	if tag_dict is None:
@@ -365,7 +365,7 @@ def GetTagSpec(tag_spec, attr_lists):
 			for attr_list in tag_field_val:
 				attr_dict.update(attr_lists[UnicodeEscape(attr_list)])
 
-	logging.info('... done')
+	#logging.info('... done')
 	tag_spec_dict = {'tag_spec':tag_dict, 'attr_spec_list':attr_dict}
 	if tag_spec.HasField('cdata'):
 		cdata_dict = {}
@@ -410,7 +410,7 @@ def GetTagSpec(tag_spec, attr_lists):
 
 
 def GetTagRules(tag_spec):
-	logging.info('entering ...')
+	#logging.info('entering ...')
 
 	tag_rules = {}
 
@@ -504,12 +504,12 @@ def GetTagRules(tag_spec):
 				amp_layout[ field[0].name ] = field[1]
 		tag_rules['amp_layout'] = amp_layout
 
-	logging.info('... done')
+	#logging.info('... done')
 	return tag_rules
 
 
 def GetAttrs(attrs):
-	logging.info('entering ...')
+	#logging.info('entering ...')
 
 	attr_dict = {}
 	for attr_spec in attrs:
@@ -519,7 +519,7 @@ def GetAttrs(attrs):
 		# Add attribute name and alternative_names
 		attr_dict[UnicodeEscape(attr_spec.name)] = value_dict
 
-	logging.info('... done')
+	#logging.info('... done')
 	return attr_dict
 
 
