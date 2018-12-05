@@ -115,7 +115,7 @@ class SValidationResult extends ValidationResult
                 return 17;
             case ValidationErrorCode::STYLESHEET_TOO_LONG:
                 return 18;
-            case ValidationErrorCode::CSS_SYNTAX:	
+            case ValidationErrorCode::CSS_SYNTAX:
                 return 19;
             case ValidationErrorCode::CSS_SYNTAX_INVALID_AT_RULE:
                 return 20;
