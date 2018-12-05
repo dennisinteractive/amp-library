@@ -5,6 +5,7 @@ $script = <<-SCRIPT
 echo Provisioning…
 sudo apt-get update
 sudo apt-get install default-jdk protobuf-compiler python-protobuf python npm -y
+sudo apt install php7.0-cli
 sudo apt-get install php-dom
 sudo apt-get install composer
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
