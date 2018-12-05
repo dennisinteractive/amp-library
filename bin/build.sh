@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-set -x
+set +x
 
 # Go to the right location.
 cd "$(dirname "$0")"
@@ -40,17 +40,13 @@ clear
 cp $BIN_PATH/*.py $VENDOR_PATH/amphtml/validator
 cd validator
 
-# Create dist folder.
-if [ ! -e dist ]; then
-	mkdir dist
-fi
-
 # Run WP script.
 python amphtml-update-wp.py
-# Run Lullabot Script.
-python validator_gen_php.py
-
-cp dist/validator-generated.php $PROJECT_PATH/src/Spec/
 cp dist/class-amp-allowed-tags-generated.php $PROJECT_PATH/src/Spec/
 
-echo "Generated from tag $LATEST_TAG"
+# Run Lullabot Script.
+python validator_gen_php.py
+cp dist/validator-generated.php $PROJECT_PATH/src/Spec/
+
+echo "Generated files"
+ls $PROJECT_PATH/src/Spec/*.php
