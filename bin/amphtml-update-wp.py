@@ -524,7 +524,7 @@ def GetAttrs(attrs):
 
 
 def GetValues(attr_spec):
-	logging.info('entering ...')
+	#logging.info('entering ...')
 
 	value_dict = {}
 
@@ -591,7 +591,7 @@ def GetValues(attr_spec):
 			value_url_dict[value_url_key.name] = value_url_val_val
 		value_dict['value_url'] = value_url_dict
 
-	logging.info('... done')
+	#logging.info('... done')
 	return value_dict
 
 
