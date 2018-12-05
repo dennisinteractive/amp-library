@@ -44,10 +44,12 @@ if [ ! -e dist ]; then
 	mkdir dist
 fi
 
-# Run script.
+# Run WP script.
 python amphtml-update-wp.py
+# Run Lullabot Script.
 python validator_gen_php.py
-cp dist/validator-generated.php ../../../src/Spec/
-cp dist/class-amp-allowed-tags-generated.php ../../../src/Spec/
+
+cp dist/validator-generated.php $PROJECT_PATH/src/Spec/
+cp dist/class-amp-allowed-tags-generated.php $PROJECT_PATH/src/Spec/
 
 echo "Generated from tag $LATEST_TAG"
