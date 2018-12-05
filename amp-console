@@ -33,5 +33,5 @@ use Lullabot\AMP\AmpCommand;
 use Symfony\Component\Console\Application;
 
 $application = new Application();
-$application>add(new AmpCommand());
-$application>run();
+$application->add(new AmpCommand());
+$application->run();
