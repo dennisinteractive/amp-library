@@ -91,7 +91,7 @@ class CdataMatcher
             try {
                 $this->validateCssSpec($cdata, $context, $result, $cdata_spec);
             } catch (\Exception $e) {
-                $context->addError(ValidationErrorCode::CSS_SYNTAX_INVALID_AT_RULE,
+                $context->addError(ValidationErrorCode::CSS_SYNTAX,
                     [ParsedTagSpec::getTagSpecName($this->tag_spec), 'CSS Parser Error: ' . $e->getMessage()], $this->tag_spec->spec_url, $result);
             }
         }
@@ -162,7 +162,7 @@ class CdataMatcher
                 }
 
                 if ($parse_as == 'PARSE_AS_ERROR') {
-                    $context->addError(ValidationErrorCode::CSS_SYNTAX,
+                    $context->addError(ValidationErrorCode::CSS_SYNTAX_INVALID_AT_RULE,
                         [ParsedTagSpec::getTagSpecName($this->tag_spec), $rule->atRuleName()], $this->tag_spec->spec_url, $result, '', '', $rule->getLineNo());
                 }
             }
