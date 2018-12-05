@@ -51,6 +51,22 @@ import collections
 import json
 import google
 
+def SetupOutDir(out_dir):
+  """Sets up a clean output directory.
+
+  Args:
+    out_dir: directory name of the output directory. Must not have slashes,
+      dots, etc.
+  """
+  logging.info('entering ...')
+  assert re.match(r'^[a-zA-Z_\-0-9]+$', out_dir), 'bad out_dir: %s' % out_dir
+
+  if os.path.exists(out_dir):
+    subprocess.check_call(['rm', '-rf', out_dir])
+  os.mkdir(out_dir)
+  logging.info('... done')
+
+
 def ProperPHPClassName(name):
   # omit the first two names, usually amp.validator
   return ''.join(name.split('.')[2:])
@@ -373,6 +389,7 @@ def Main():
 
 	out_dir = 'dist'
 
+	SetupOutDir(out_dir)
 	GenValidatorProtoascii(out_dir)
 	GenValidatorPb2Py(out_dir)
 	GenValidatorProtoascii(out_dir)

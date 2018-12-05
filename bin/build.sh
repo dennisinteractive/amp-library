@@ -35,9 +35,10 @@ fi
 cd $VENDOR_PATH/amphtml
 LATEST_TAG=$( git describe --abbrev=0 --tags )
 git checkout $LATEST_TAG
+clear
 
 cp $BIN_PATH/*.py $VENDOR_PATH/amphtml/validator
-cd $VENDOR_PATH/amphtml/validator
+cd validator
 
 # Create dist folder.
 if [ ! -e dist ]; then

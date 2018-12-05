@@ -614,7 +614,6 @@ def Phpize(data, indent=0):
 		String formatted as PHP literal.
 	"""
 	json_string = json.dumps(data, sort_keys=True, ensure_ascii=False)
-
 	pipe = subprocess.Popen(['php', '-r', 'var_export( json_decode( file_get_contents( "php://stdin" ), true ) );'], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.STDOUT)
 	php_stdout = pipe.communicate(input=json_string)[0]
 	php_exported = php_stdout.decode()
