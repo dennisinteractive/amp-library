@@ -604,6 +604,11 @@ class AMP
             error_reporting(E_ALL);
         }
 
+        // Make it work with relative paths.
+        if (!realpath($filename)) {
+          $filename = getcwd() . '/../' . $filename;
+        }
+
         $file_html = @file_get_contents($filename);
         if ($file_html === false) {
             throw new \Exception("No such file or file not accessible: $filename Exiting...");
