@@ -1,6 +1,8 @@
 {
     "name": "lullabot/amp",
     "description": "A set of useful classes and utilities to convert html to AMP html (See https://www.ampproject.org/)",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "authors": [
         {
             "name": "Sidharth Kshatriya",
