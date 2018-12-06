@@ -21,7 +21,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 
 // Include autoloader.
 foreach ([getcwd(), __DIR__] as $dir) {
-    chdir($dir . '/../../');
+    chdir($dir . '/../../../');
     $autoload = getcwd() . '/autoload.php';
     if (file_exists($autoload)) {
         require_once ($autoload);
