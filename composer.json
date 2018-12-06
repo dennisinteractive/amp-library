@@ -20,7 +20,7 @@
         "guzzlehttp/guzzle": "~6.1"
     },
     "autoload": {
-        "classmap": ["src/Spec/validator-generated.php"],
+        "classmap": ["src/Spec"],
         "psr-4": {"Lullabot\\AMP\\": "src"}
     },
     "require-dev": {
