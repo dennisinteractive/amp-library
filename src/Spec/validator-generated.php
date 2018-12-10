@@ -2368,6 +2368,9 @@ class ValidationRulesFactory {
   $o_567 = new AttrSpec();
   $o_567->name = 'json';
   $o_565->attrs[] = $o_567;
+  $o_567a = new AttrSpec();
+  $o_567a->name = 'rtc-config';
+  $o_565->attrs[] = $o_567a;
   $o_568 = new AttrSpec();
   $o_568->name = 'src';
   $o_569 = new UrlSpec();
@@ -5388,4 +5391,3 @@ class ValidationRulesFactory {
   return $o_0;
   }
 }
-
