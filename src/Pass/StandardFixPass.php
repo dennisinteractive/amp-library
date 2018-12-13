@@ -63,11 +63,6 @@ class StandardFixPass extends BasePass
             $this->addComponentJsToHead('amp-ad');
         }
 
-        $all_amp_sticky_ad = $this->q->top()->find('amp-sticky-ad');
-        if ($all_amp_sticky_ad->length > 0) {
-            $this->addComponentJsToHead('amp-sticky-ad');
-        }
-
         /** @var SValidationError $error */
         foreach ($this->validation_result->errors as $error) {
             // If the error was resolved, continue
