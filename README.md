@@ -3,6 +3,41 @@
 
 **We are maintaining our own forked version of the amp library until this issue is resolved https://github.com/Lullabot/amp-library/issues/231**
 
+To use this, you can add a composer.json file to your site. On Drupal 7 sites you need to manually require the autoloader, this can be done on site_core.module.
+
+```
+{
+  "name": "dennisdigital/expertreviews",
+  "description": "ExpertReviews website",
+  "type": "project",
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    },
+    {
+      "type": "composer",
+      "url": "https://repo.packagist.com/dennisdigital/"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:dennisinteractive/amp-library.git",
+      "no-api": true
+    },
+    {
+      "packagist.org": false
+    }
+  ],
+  "require": {
+    "dennisdigital/amp-library": "~1.0"
+  }
+}
+```
+
+
 An open source PHP library and console utility to convert HTML to [AMP HTML](https://www.ampproject.org/) and report HTML compliance with the AMP HTML specification.
 
 ### What is the AMP PHP Library?
