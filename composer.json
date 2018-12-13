@@ -1,5 +1,5 @@
 {
-    "name": "lullabot/amp",
+    "name": "dennisdigital/amp-library",
     "description": "A set of useful classes and utilities to convert html to AMP html (See https://www.ampproject.org/)",
     "authors": [
         {
@@ -15,7 +15,7 @@
         "querypath/QueryPath": ">=3.0.4",
         "sebastian/diff": "^1.2 || ^2 || ^3",
         "marc1706/fast-image-size": "1.*",
-        "masterminds/html5": "^2.2.0",
+        "masterminds/html5": "~2.3.0",
         "sabberworm/php-css-parser": "^8.0.0",
         "guzzlehttp/guzzle": "~6.1"
     },
