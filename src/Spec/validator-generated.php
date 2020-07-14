@@ -5388,6 +5388,36 @@ class ValidationRulesFactory {
   $o_1318->mandatory = TRUE;
   $o_1318->value_regex = 'https://cdn\\.ampproject\\.org/v0/amp-bind-(latest|0\\.1).js';
   $o_1315->attrs[] = $o_1318;
+  $o_1319 = new TagSpec();
+  $o_1319->tag_name = 'amp-consent';
+  $o_1319->attr_lists = ['common-extension-attrs'];
+  $o_1320 = new AttrSpec();
+  $o_1320->name = 'amp-consent';
+  $o_1320->allowed_versions = ['0.1', 'latest'];
+  $o_1319->extension_spec = $o_1320;
+  $o_0->tags[] = $o_1319;
+  $o_1321 = new TagSpec();
+  $o_1321->tag_name = 'script';
+  $o_1321->spec_name = 'amp-consent extension .json script';
+  $o_1321->unique = true;
+  $o_1321->mandatory_parent = 'amp-consent';
+  $o_1322 = new AttrSpec();
+  $o_1322->name = 'nonce';
+  $o_1321->attrs[] = $o_1322;
+  $o_1323 = new AttrSpec();
+  $o_1323->name = 'type';
+  $o_1323->mandatory = true;
+  $o_1323->value_casei = 'application/json';
+  $o_1321->attrs[] = $o_1323;
+  $o_1324 = new CdataSpec();
+  $o_1325 = new BlackListedCDataRegex();
+  $o_1325->regex = '<!--';
+  $o_1325->error_message = 'html comments';
+  $o_1324->blacklisted_cdata_regex[] = $o_1325;
+  $o_1321->cdata = $o_1324;
+  $o_1321->satisfies = ['amp-consent extension .json script'];
+  $o_1321->requires_extension = ['amp-consent'];
+  $o_0->tags[] = $o_1321;
   return $o_0;
   }
 }
