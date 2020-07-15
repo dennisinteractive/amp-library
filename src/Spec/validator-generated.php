@@ -5395,6 +5395,10 @@ class ValidationRulesFactory {
     $o_1320->name = 'amp-consent';
     $o_1320->allowed_versions = ['0.1', 'latest'];
     $o_1319->extension_spec = $o_1320;
+    $o_1328 = new AttrSpec();
+    $o_1328->name = 'layout';
+    $o_1328->value = 'nodisplay';
+    $o_1319->attrs[] = $o_1328;
     $o_0->tags[] = $o_1319;
     $o_1321 = new TagSpec();
     $o_1321->tag_name = 'script';
